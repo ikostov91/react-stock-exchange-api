@@ -23,9 +23,8 @@ namespace react_stock_exchange_api
                 options.AddPolicy(name: _policyName,
                     options =>
                     {
-                        options// .WithOrigins(builder.Configuration.GetValue<string>("Origins"))
+                        options.WithOrigins(builder.Configuration.GetValue<string>("Origins"))
                             .AllowAnyHeader()
-                            .AllowAnyOrigin()
                             .AllowAnyMethod();
                     });
             });
