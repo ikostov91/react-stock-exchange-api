@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\react-stock-exchange-api.props" />
+</Project>
