@@ -20,9 +20,9 @@ namespace StockExchangeApi.Controllers
 
         [HttpGet]
         [Route("company-data/{databaseId}/{companyId}")]
-        public async Task<IActionResult> GetCompanyData([FromRoute] string companyId, [FromServices] IConfiguration configuration)
+        public async Task<IActionResult> GetCompanyData([FromRoute] string databaseId, [FromRoute] string companyId, [FromServices] IConfiguration configuration)
         {
-            string url = $"https://data.nasdaq.com/api/v3/datasets/BSE/{companyId}/data.json?column_index=1&column_index=4&api_key={configuration.GetValue<string>("ApiKey")}";
+            string url = $"https://data.nasdaq.com/api/v3/datasets/{databaseId}/{companyId}/data.json?column_index=1&column_index=4&api_key={configuration.GetValue<string>("ApiKey")}";
             var result = await SendRequest(url);
 
             return Ok(result);
